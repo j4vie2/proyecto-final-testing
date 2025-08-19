@@ -38,3 +38,9 @@ class LoginPage:
             EC.element_to_be_clickable((By.LINK_TEXT, "Add User"))
         )
         add_user_link.click()
+
+    def click_menu_products(self):
+        product_option = WebDriverWait(self.__driver, 10).until(
+            EC.element_to_be_clickable((By.LINK_TEXT, "Products"))
+        )
+        product_option.click()
