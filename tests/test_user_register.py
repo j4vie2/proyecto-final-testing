@@ -1,5 +1,7 @@
 import unittest
 from selenium import webdriver
+from selenium.webdriver.chrome.service import Service as ChromeService
+from webdriver_manager.chrome import ChromeDriverManager
 from pages.product_register_page import ProductRegisterPage
 from pages.login_page import LoginPage
 import time
@@ -7,7 +9,9 @@ import time
 class Test(unittest.TestCase):
 
     def setUp(self):
-        self.__driver = webdriver.Chrome()
+        self.__driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
+        self.__driver.implicitly_wait(15)
+
         self.__driver.get("https://practicesoftwaretesting.com/auth/login")
         self.__login_page = LoginPage(self.__driver)
         self.__product_register_page = ProductRegisterPage(self.__driver)

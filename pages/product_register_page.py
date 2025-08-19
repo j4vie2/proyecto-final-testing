@@ -18,7 +18,7 @@ class ProductRegisterPage:
         self.__enabled = (By.ID, "enabled")
         self.__failed_login_attempts = (By.ID, "failed_login_attempts")
         self.__password = (By.ID, "password")
-        self.__button_save = (By.XPATH, "//input[@type='submit']")
+        self.__button_save = (By.CSS_SELECTOR, "data-test='user-submit'")
 
     def enter_first_name(self, first_name):
         first_name_field = self.__driver.find_element(*self.__first_name)
